@@ -1,0 +1,18 @@
+{
+    "title": "DWEC - Examen Primera Evaluación",
+    "name": "practica_dwec_gestor_presupuesto",
+    "version": "1.0.0",
+    "scripts": {
+        "test": "cypress run -b edge",
+        "test1": "cypress run -b edge -s test/test1.cy.js",
+        "test2": "cypress run -b edge -s test/test2.cy.js",
+        "test3": "cypress run -b edge -s test/test3.cy.js"
+    },
+    "description": "Examen de la primera evaluación del módulo de Desarrollo de Web en Entorno Cliente",
+    "license": "GPL-3.0",
+    "author": "Pedro Prieto",
+    "type": "module",
+    "devDependencies": {
+        "cypress": "^13.6.0"
+    }
+}

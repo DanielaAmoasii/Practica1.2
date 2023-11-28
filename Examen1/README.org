@@ -1,0 +1,62 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/jPV-xNWZ)
+* Examen DWEC Primera Evaluación
+** Archivos del examen
+   Se proporciona el esqueleto del archivo ~contactos.html~ sobre el que se ejecutará la aplicación a desarrollar.
+   
+Se incluye en el repositorio un conjunto de archivos que se utilizarán para realizar *tests*. Dichos tests se podrán utilizar para comprobar si el examen se ha realizado correctamente. Los tests se podrán ejecutar el número de veces que sea necesario.
+
+Los tests tienen asignada una puntuación de *8 puntos*. Los otros 2 puntos serán asignados por el profesor en función de la calidad del código (claridad, optimización, etc.)
+
+** Instalación de software (SOLO SI LO INDICA EL PROFESOR)
+Abre un terminal y ejecuta el comando ~powershell~. A continuación, ejecuta el programa ~instalar_programas.ps1~.
+
+** Preparación
+1. Abrir un terminal.
+2. Clonar el repositorio al equipo local mediante ~git clone~.
+3. Acceder a la carpeta del repositorio.
+4. Ejecutar el comando ~npm install~. Este comando instalará todas las librerías de Node necesarias para ejecutar los tests.
+5. Ejecutar el comando ~npm run test~ para lanzar los *tests*. Este comando podrá ejecutarse tantas veces como sea necesario. Por pantalla se mostrarán los tests que se pasan y los que no, de manera que se tendrá información sobre las acciones que hay que realizar.
+
+** Tareas a realizar
+*** Lógica de la aplicación: fichero ~js/gestionContactos.js~
+    Crea un fichero en la ruta ~js/gestionContactos.js~ del repositorio. El fichero deberá contener el siguiente código:
+    - Variable global ~contactos~, inicializada a un *array vacío*. Esta variable almacenará la lista de contactos guardados por la aplicación.
+    - ~Contacto~ - *Función constructora* que se encargará de crear un objeto *contacto*. Esta función devolverá un objeto de tipo *contacto*. La función tendrá *dos parámetros*: ~nombre~ y ~apellidos~. El *objeto* creado a partir de este constructor deberá tener las siguientes propiedades:
+      - ~nombre~ - Propiedad que almacenará el nombre del contacto
+      - ~apellidos~ - Propiedad que almacenará los apellidos del contacto
+      - ~nombreCompleto~ - *Función* que devolverá el nombre y los apellidos del contacto en forma de cadena de texto. Por ejemplo, si ~nombre=Pedro~ y ~apellidos=Prieto Alarcón~, la función deberá devolver: ~Pedro Prieto Alarcón~.
+    - ~listarContactos~ - Función *sin parámetros* que deberá devolver la lista de contactos.
+    - ~anyadirContacto~ - Función de *un parámetro* que añadirá el objeto de tipo ~contacto~ pasado como parámetro a la variable global ~contactos~. El contacto se debe añadir al final del array.
+    
+    Se deben *exportar* las funciones ~Contacto~, ~listarContactos~ y ~anyadirContacto~.
+
+*** Página HTML de la aplicación: fichero ~contactos.html~
+    Se debe modificar el fichero ~contactos.html~ para que incluya el siguiente contenido: 
+    - Un *formulario* dentro de la capa ~div#formulario~. El formulario debe tener un atributo ~id~ con valor ~crearcontacto~. El formulario debe contener:
+      - Un campo de texto con ~id~ y ~name~ con valor ~nombre~
+      - Un campo de texto con ~id~ y ~name~ con valor ~apellidos~
+      - Un botón de tipo ~submit~ con texto ~Añadir~.
+    
+    Además, se deberá *importar* el fichero ~js/gestionContactosWeb.js~ como script de tipo ~module~.
+    
+*** Lógica web de la aplicación: fichero ~js/gestionContactosWeb.js~
+    Se debe crear un fichero en la ruta ~js/gestionContactosWeb.js~ del repositorio. El fichero deberá *importar la lógica de la aplicación* (archivo ~js/gestionContactos.js~).
+
+. El fichero debe tener el siguiente código:
+    - Función ~repintar~ - Esta función *sin parámetros* se encargará de *mostrar el listado de contactos* en la capa ~div#contactos~ del archivo HTML. Generará la siguiente *estructura HTML* para *cada objeto contacto* de la lista:
+      #+begin_src html
+        <div class="contacto">
+          NOMBRE COMPLETO DEL CONTACTO
+          <!-- Ej. Pedro Prieto Alarcón -->
+        </div>
+      #+end_src
+      Donde se sustituirá el texto por los datos del contacto correspondiente.
+    - Función ~anyadirContactoWeb~ - Esta función se utilizará como *manejadora de eventos* del formulario ~#crearcontacto~ del archivo HTML. Se encargará de:
+      - Prevenir el comportamiento por defecto del formulario
+      - *Crear* un objeto ~contacto~ a partir de los datos del formulario.
+      - *Añadir* el objeto creado a la lista de contactos.
+      - Llamar a la función ~repintar~ para mostrar el listado actualizado de contactos.
+    - Código necesario para *añadir la función* ~anyadirContactoWeb~ como *manejadora* del evento ~submit~ del formulario ~#crearcontacto~.
+
+** Formato de la entrega
+Se debe realizar la entrega subiendo el repositorio a GitHub mediante ~git push~.
