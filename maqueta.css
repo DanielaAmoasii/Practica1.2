@@ -1,0 +1,50 @@
+/*  = MAQUETADO BASE =  */
+/*  =================== */
+.azulheader{
+    background-color: cornflowerblue;
+    height: 13vh !important;
+}
+.main{
+    height: 80vh !important;
+}
+.azulfooter{
+    background-color: cornflowerblue;
+    height: 7vh !important;
+}
+
+
+/*  =  MAIN =  */
+/*  ============================= */
+.rosa{
+    background-color: palevioletred;     
+}
+
+
+/*  = CONTENEDOR CON TRES COLORES =  */
+/*  =================== */
+.verde {
+    background-color: green;
+    height: 20%; 
+}
+.azul{
+    background-color: blue; 
+    height: 40%;
+}
+.rojo{
+    background-color: red; 
+    height: 40%;   
+}
+
+/*  = AJUSTE RESPONSIVE =  */
+/*  =================== */
+@media (max-width:992px){
+    .rojo{
+        height: 20%;
+    }
+    .azul{
+        height: 20%;
+    }
+    .verde{
+        height: 20%;
+    }
+}
